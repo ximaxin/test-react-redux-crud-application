@@ -1,0 +1,13 @@
+version: '3.10'
+services:
+  front:
+    build:
+      context: ./front
+    volumes:
+      - ./front:/front:cached
+    working_dir: /front
+    ports:
+      - '3000:3000'
+    command: sh -c "cd react-app && yarn start"
+    stdin_open: true
+    tty: true
